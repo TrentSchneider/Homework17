@@ -38,7 +38,17 @@ router
       });
   });
 //   get workouts in range
-router.get("/api/workouts/range", (req, res) => {});
+router.get("/api/workouts/range", (req, res) => {
+  Workouts.find({})
+    .sort({ day: 1 })
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+});
+
 // add exercise
 router.post("/api/workouts/:id", (req, res) => {
   Workouts.findOne({
