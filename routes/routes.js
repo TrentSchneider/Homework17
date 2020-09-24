@@ -39,6 +39,16 @@ router
 //   get workouts in range
 router.get("/api/workouts/range", (req, res) => {});
 // add exercise
-router.post("/api/workouts/:id", (req, res) => {});
+router.post("/api/workouts/:id", (req, res) => {
+  Workouts.findOne({
+    _id: req.params.id
+  })
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+});
 
 module.exports = router;
