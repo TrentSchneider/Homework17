@@ -28,8 +28,9 @@ router
       });
   })
   //   create workout
-  .post(({ body }, res) => {
-    Workouts.create(body)
+  .post((req, res) => {
+    console.log(req.body);
+    Workouts.create(req.body)
       .then(data => {
         res.json(data);
       })
@@ -50,11 +51,20 @@ router.get("/api/workouts/range", (req, res) => {
 });
 
 // add exercise
-router.post("/api/workouts/:id", (req, res) => {
-  Workouts.findOne({
-    _id: req.params.id
-  })
+router.put("/api/workouts/:id", (req, res) => {
+  console.log("test");
+  Workouts.updateOne(
+    {
+      _id: req.params.id
+    },
+    {
+      $push: {
+        exercises: req.body
+      }
+    }
+  )
     .then(data => {
+      console.log(data);
       res.json(data);
     })
     .catch(err => {
