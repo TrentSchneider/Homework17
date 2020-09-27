@@ -1,7 +1,8 @@
 let mongoose = require("mongoose");
 let db = require("../models");
+let DB_ROUTE = require("./db_route");
 
-mongoose.connect("mongodb://localhost/workout", {
+mongoose.connect(DB_ROUTE, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
