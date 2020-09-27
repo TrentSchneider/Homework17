@@ -6,7 +6,7 @@ https://thawing-savannah-69845.herokuapp.com/
 
 This is a website demonstrating my abilities with MongoDB and Mongoose. The site is a workout tracker that tracks basic stats for the user's workout.
 
-(insert image)
+![image](https://user-images.githubusercontent.com/64096701/94354642-41b72180-004b-11eb-8152-ee1c7eb72e37.png)
 
 ## Installation
 
